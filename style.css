@@ -1,11 +1,18 @@
 
 
+*{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
 body {
     background-color: white;
 }
 
 #green_box {
-    margin:5px; 
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    margin:5px;
     height: 25vh;
     width: 100%;
     border: 10px solid lime;
@@ -16,8 +23,14 @@ body {
     font-size: 7vh;
 }
 
+.break {
+    flex-basis: 100%;
+    height: 0;
+}
+
 #sub_title{
-    text-align: center;  
+    text-align: center;
+    font-size: 3vh;
 }
 
 #lower_boxes{
@@ -41,7 +54,7 @@ body {
 }
 
 #purple_box{
-    margin:10px;
+    margin:5px;
     height:10vh;
     width: auto;
     border: 10px solid magenta;
@@ -49,8 +62,9 @@ body {
 
 #yellow_box{
     margin:5px;
-    height: 60vh;
+    box-sizing: border-box;
     width: auto;
+    height: 80%;
     border: 10px solid yellow;
 }
 
