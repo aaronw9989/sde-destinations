@@ -1,5 +1,56 @@
 
 
 body {
-    background-color: aqua;
+    background-color: white;
 }
+
+#green_box {
+    margin:5px; 
+    height: 25vh;
+    width: 100%;
+    border: 10px solid lime;
+}
+
+#title{
+    text-align: center;
+    font-size: 7vh;
+}
+
+#sub_title{
+    text-align: center;  
+}
+
+#lower_boxes{
+   display: flex; 
+   justify-content: center;
+   align-content: space-between;
+}
+
+#red_box{
+    margin:5px 20px 5px 5px;
+    height: 75vh;
+    width: 30vw;
+    border: 10px solid red;
+}
+
+#blue_box{
+    margin:5px 5px 20px 5px;
+    height: 75vh;
+    width: 30vw;
+    border: 10px solid blue;
+}
+
+#purple_box{
+    margin:10px;
+    height:10vh;
+    width: auto;
+    border: 10px solid magenta;
+}
+
+#yellow_box{
+    margin:5px;
+    height: 60vh;
+    width: auto;
+    border: 10px solid yellow;
+}
+
