@@ -42,9 +42,58 @@
 
     <!-- Red, Blue, Purple, and Yellow Boxes -->
     <div id="lower_boxes">
-      <div id="red_box"></div>
+      <div id="red_box">
+        <form action="" id="input_data">
+          <div class="mb-5">
+            <!-- Destination Name -->
+            <label for="destination_name" class="form-label"
+              >Destination Name</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="destination_name"
+              placeholder="Enter the name of the destination"
+              required
+            />
+
+            <!-- Location -->
+            <label for="location" class="form-label">Location</label>
+            <input
+              type="text"
+              class="form-control"
+              id="location"
+              placeholder="Where is it located?"
+              required
+            />
+
+            <!-- Photo -->
+            <label for="photo" class="form-label">Photo</label>
+            <input
+              type="text"
+              class="form-control"
+              id="photo"
+              placeholder="Enter an image url of the place"
+            />
+
+            <!-- Description -->
+            <label for="description" class="form-label">Description</label>
+            <textarea
+              type="text"
+              class="form-control"
+              id="desciption"
+              rows="2"
+            ></textarea>
+
+            <!-- Submit Button -->
+            <button class="btn btn-primary" type="submit">Add to list</button>
+          </div>
+        </form>
+      </div>
       <div id="blue_box">
-        <div id="purple_box"></div>
+        <div id="purple_box">
+          <h3>Enter destination details</h3>
+        </div>
         <div id="yellow_box"></div>
       </div>
     </div>
