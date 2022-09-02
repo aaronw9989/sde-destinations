@@ -9,7 +9,8 @@ const LOCATION_DESCRIPTION = FORM.elements.description;
 
 // Grab the input form with a query selector and add an event listener to our submit button
 // NOTE: Query selector can grab by id, class name, or tag 
-// NOTE: document is the entry point in the DOM
+// NOTE: Document is the main entry point into the DOM, from it we can 
+// access any node 
 document.querySelector("#input_data").addEventListener("submit", handleInputData);
   
 
@@ -107,15 +108,18 @@ function createDestination(destName, locationName, photoLink, destDescription) {
 }
 
 function createDestinationCard(destName, locationName, photoLink, destDescription) {
-    
-// const card = `<div class="card" style="width: 18rem;">
-//   <img class="card-img-top" src="..." alt="Card image cap">
-//   <div class="card-body">
-//     <h5 class="card-title">Card title</h5>
-//     <p class="card-text">Some quick example text.</p>
-//     <a href="#" class="btn btn-primary">Go somewhere</a>
-//   </div>
-// </div>`;
+
+// This is the card we want to create
+/*
+<div class="card" style="width: 18rem;">
+    <img src="..." alt="image_name">
+    <h4 class="card-title">NYC</h4>
+    <h5>New York</h5>
+    <p>The city that never sleeps</p>
+    <button class="btn btn-warning">Edit</button>
+    <button class="btn btn-danger">Delete</button>
+</div>
+*/
 
 
     // Create div element
@@ -137,7 +141,6 @@ function createDestinationCard(destName, locationName, photoLink, destDescriptio
     // Create a card heading and add it to the element
     let destinationHeading = document.createElement("h4");
     destinationHeading.className = "card-title";
-    destinationHeading.id = "destination_"
     // Use innerText instead of innerHTML
     destinationHeading.innerText = destName; 
     card.appendChild(destinationHeading); 
@@ -214,3 +217,4 @@ function resetInputData() {
     IMG_LINK.value = ""; 
     LOCATION_DESCRIPTION.value = ""; 
 }
+

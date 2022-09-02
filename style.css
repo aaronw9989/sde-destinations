@@ -70,5 +70,9 @@ body {
     width: auto;
     height: 80%;
     border: 10px solid yellow;
+    /*display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;*/ 
 }
+
 
