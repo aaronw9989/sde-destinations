@@ -1,7 +1,15 @@
 
+// Create and initialize constant variables for the form data
+const FORM = document.forms.input_data; 
+const DESTINATION_NAME = FORM.elements.destination_name; 
+const DESTINATION_LOCATION = FORM.elements.location; 
+const IMG_LINK = FORM.elements.photo; 
+const LOCATION_DESCRIPTION = FORM.elements.description; 
+
 
 // Grab the input form with a query selector and add an event listener to our submit button
 // NOTE: Query selector can grab by id, class name, or tag 
+// NOTE: document is the entry point in the DOM
 document.querySelector("#input_data").addEventListener("submit", handleInputData);
   
 
@@ -12,27 +20,21 @@ function handleInputData(event) {
     // Prevent refresh 
     event.preventDefault(); 
 
-    // Test if event handler works
-    // alert("Submit button clicked!");
+    // NOTE: The read-only target property of the Event interface is a reference 
+    // to the object onto which the event was dispatched. 
+    // NOTE: event.target returns the DOM element, so you can retrieve any 
+    // property/attribute that has a value 
     
-    // Get the data from the form
-    /*
-    let destName = document.getElementById("destination_name")
-    console.log(destName);  
-    */
-    // let destName = document.querySelector("destination_name");
-
-
+    // Grab the destination name
     let destName = event.target.elements["destination_name"].value;
-
+    // Grab the location name
     let locationName = event.target.elements["location"].value;
-
-    // https://images.unsplash.com/photo-1570740753915-b7b204e7f2a0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8dGltZSUyMHNxdWFyZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60
+    // Grab the photo link
     let photoLink = event.target.elements["photo"].value;
-
+    // Grab the destination description
     let destDescription = event.target.elements["description"].value;
 
-    // Ctrl + Shift + L to create log
+    // Log our input values 
     console.log(destName); 
     console.log(locationName); 
     console.log(photoLink); 
@@ -41,11 +43,14 @@ function handleInputData(event) {
     // Create our new destination 
     let destinationCard = createDestinationCard(destName, locationName, photoLink, destDescription);
 
-    console.log("Hello");
+    // Log our destination card
     console.log(destinationCard); 
 
     // Add newly created card and it's content to the DOM
     document.querySelector("#yellow_box").appendChild(destinationCard); 
+
+    // Reset our input form data to empty strings
+    resetInputData(); 
 }
 
 function createDestination(destName, locationName, photoLink, destDescription) {
@@ -79,6 +84,7 @@ function createDestination(destName, locationName, photoLink, destDescription) {
      descriptionParagraph.innerHTML = destDescription; 
      destElement.appendChild(descriptionParagraph); 
      
+     // 7. Create the edit button 
      // <button type="button" class="btn btn-warning">Warning</button>
      // Create the edit (warning) button
      let editButton = document.createElement("button"); 
@@ -86,6 +92,7 @@ function createDestination(destName, locationName, photoLink, destDescription) {
      editButton.innerText = "Edit"; 
      destElement.appendChild(editButton); 
 
+     // 8. Create the delete button
      // <button type="button" class="btn btn-danger">Danger</button>
      // Create a delete button
      let deleteButton = document.createElement("button"); 
@@ -100,6 +107,16 @@ function createDestination(destName, locationName, photoLink, destDescription) {
 }
 
 function createDestinationCard(destName, locationName, photoLink, destDescription) {
+    
+// const card = `<div class="card" style="width: 18rem;">
+//   <img class="card-img-top" src="..." alt="Card image cap">
+//   <div class="card-body">
+//     <h5 class="card-title">Card title</h5>
+//     <p class="card-text">Some quick example text.</p>
+//     <a href="#" class="btn btn-primary">Go somewhere</a>
+//   </div>
+// </div>`;
+
 
     // Create div element
     const card = document.createElement('div'); 
@@ -119,6 +136,8 @@ function createDestinationCard(destName, locationName, photoLink, destDescriptio
     
     // Create a card heading and add it to the element
     let destinationHeading = document.createElement("h4");
+    destinationHeading.className = "card-title";
+    destinationHeading.id = "destination_"
     // Use innerText instead of innerHTML
     destinationHeading.innerText = destName; 
     card.appendChild(destinationHeading); 
@@ -152,17 +171,6 @@ function createDestinationCard(destName, locationName, photoLink, destDescriptio
     
     // Return the new card 
     return card; 
-    
-    
-// const card = `<div class="card" style="width: 18rem;">
-//   <img class="card-img-top" src="..." alt="Card image cap">
-//   <div class="card-body">
-//     <h5 class="card-title">Card title</h5>
-//     <p class="card-text">Some quick example text.</p>
-//     <a href="#" class="btn btn-primary">Go somewhere</a>
-//   </div>
-// </div>`;
-
 
 }
 
@@ -177,5 +185,32 @@ function deleteCard(event) {
 
 // Edit a card
 function editCard(event) {
-    alert("Hello user, this feature coming soon!");
+
+    // Grab the parent (card)
+    let card = event.target.parentElement;
+
+    // Edit the photo of the destination card
+    let edit_photo = prompt("Enter a new destination photo:");
+    card.children[0].src = edit_photo; 
+
+    // Edit the name of the destination card
+    let edit_name = prompt("Enter a new destination name:");
+    card.children[1].innerText = edit_name; 
+
+     // Edit the location of the destination card
+     let edit_location = prompt("Enter a new location name:");
+     card.children[2].innerText = edit_location; 
+
+     // Edit the location of the destination card
+     let edit_description = prompt("Enter a new description:");
+     card.children[3].innerText = edit_description; 
+
+}
+
+// Reset all input field values to empty strings
+function resetInputData() {
+    DESTINATION_NAME.value = ""; 
+    DESTINATION_LOCATION.value = ""; 
+    IMG_LINK.value = ""; 
+    LOCATION_DESCRIPTION.value = ""; 
 }
