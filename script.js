@@ -19,6 +19,7 @@ document.querySelector("#input_data").addEventListener("submit", handleInputData
 function handleInputData(event) {
 
     // Prevent refresh 
+    // NOTE: When you have a form and hit the button in auto refreshes the page
     event.preventDefault(); 
 
     // NOTE: The read-only target property of the Event interface is a reference 
